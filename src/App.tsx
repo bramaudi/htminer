@@ -10,7 +10,7 @@ import { jsonViewer } from './jsonviewer'
 import initialscript from './script.txt?raw'
 
 const CRAWL_SERVER = import.meta.env.MODE === 'development'
-  ? 'http://localhost:8000'
+  ? 'http://localhost:8000' // php -S 0:8000 api/index.php
   : `${window.location.origin}/api`
 
 export default function () {
