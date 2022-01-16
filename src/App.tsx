@@ -9,6 +9,13 @@ import CodeMirror from 'codemirror'
 import { jsonViewer } from './jsonviewer'
 import initialscript from './script.txt?raw'
 
+Element.prototype.find = function(query) {
+	return this.querySelector(query)
+}
+Element.prototype.findAll = function(query) {
+	return this.querySelectorAll(query)
+}
+
 const CRAWL_SERVER = import.meta.env.MODE === 'development'
   ? 'http://localhost:8000' // php -S 0:8000 api/index.php
   : `${window.location.origin}/api`
