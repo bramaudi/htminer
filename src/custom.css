@@ -1,0 +1,14 @@
+body {
+	overflow: hidden;
+}
+
+.CodeMirror, .CodeMirror-gutter {
+	border-radius: 0.25rem;
+  min-height: 100%;
+	line-height: 2;
+	background: rgba(45, 45, 45, var(--tw-bg-opacity)) !important;
+}
+
+.cm-s-material-darker .cm-comment {
+  color: #7d7d7d !important;
+}

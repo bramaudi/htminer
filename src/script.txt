@@ -1,0 +1,21 @@
+const articles = []
+
+// variable `source` are the target website source
+for (const tr of source.querySelectorAll('tr.athing')) {
+	const obj = {}
+	obj.title = tr.querySelector('.titlelink').textContent
+	obj.url = tr.querySelector('.titlelink').href
+	const tr2 = (query) => {
+        const el = tr.nextElementSibling.querySelector(query)
+    	return el ? el.textContent : ''
+    }
+	obj.user = tr2('.hnuser')
+	obj.score = tr2('.score')
+	obj.date = tr2('.age')
+	obj.age = tr2('.age')
+	articles.push(obj)
+}
+
+// use `json()` to print result
+// press `Ctrl + Enter` to manually eval script
+json(articles)
