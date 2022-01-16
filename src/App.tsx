@@ -9,7 +9,7 @@ import CodeMirror from 'codemirror'
 import { jsonViewer } from './jsonviewer'
 import initialscript from './script.txt?raw'
 
-const CRAWL_SERVER = import.meta.env.MODE
+const CRAWL_SERVER = import.meta.env.MODE === 'development'
   ? 'http://localhost:8000'
   : '/api'
 
