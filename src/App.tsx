@@ -39,6 +39,9 @@ export default function () {
     if (source && state.html) {
       const { origin } = new URL(state.url)
       source.innerHTML = `<base href="${origin}"> ${state.html}`
+      for (const style of source.findAll('style')) {
+        style.remove()
+      }
     }
   }
 
