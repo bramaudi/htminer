@@ -120,7 +120,6 @@ export default function () {
       setState('script', cm.getValue())
       localStorage.setItem('script', cm.getValue())
     })
-    evalScript()
   })
     
   return (
