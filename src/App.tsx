@@ -110,13 +110,15 @@ export default function () {
       indentUnit: 4,
       theme: 'material-darker',
       extraKeys: {
-        "Ctrl-Enter": () => evalScript()
+        "Ctrl-Enter": () => {
+          mountSource()
+          evalScript()
+        }
       }
     })
     codemirror.on('change', cm => {
       setState('script', cm.getValue())
       localStorage.setItem('script', cm.getValue())
-      evalScript()
     })
     evalScript()
   })
