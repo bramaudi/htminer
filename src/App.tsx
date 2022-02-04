@@ -100,8 +100,6 @@ export default function () {
     mountSource()
     if (!state.html) {
       getWebSource(new Event('submit'))
-    } else {
-      evalScript()
     }
     const codemirror = CodeMirror.fromTextArea(editor, {
       mode: {name: 'javascript', json: true},
