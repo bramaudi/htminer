@@ -42,6 +42,9 @@ export default function () {
       for (const style of source.findAll('style')) {
         style.remove()
       }
+      for (const linkCss of source.findAll('link[rel=stylesheet]')) {
+        linkCss.remove()
+      }
     }
   }
 
