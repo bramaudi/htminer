@@ -38,7 +38,7 @@ export default function () {
   function mountSource() {
     if (source && state.html) {
       const { origin } = new URL(state.url)
-      source.innerHTML = `<base href="${origin}"> ${state.html}`
+      source.innerHTML = `<base href="${origin}" /> ${state.html}`
       for (const style of source.findAll('style')) {
         style.remove()
       }
@@ -59,7 +59,9 @@ export default function () {
 
   function evalScript() {
     try {
-      return new Function('source', 'json', state.script)(source, appendLog)
+      const varsNamespace = ['$source', 'print', '$url']
+      const varsReplaced = [source, appendLog, state.url]
+      return new Function(...varsNamespace, state.script)(...varsReplaced)
     } catch (error) {
       if (error instanceof Error) {
         return appendLog({error: error.message})
