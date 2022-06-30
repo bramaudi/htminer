@@ -16,10 +16,6 @@ Element.prototype.findAll = function(query) {
 	return this.querySelectorAll(query)
 }
 
-const CRAWL_SERVER = import.meta.env.MODE === 'development'
-  ? 'http://localhost:8000' // php -S 0:8000 api/index.php
-  : `${window.location.origin}/api`
-
 export default function () {
   let copy_btn!: HTMLButtonElement;
   let json_result!: HTMLTextAreaElement;
@@ -86,7 +82,7 @@ export default function () {
     e.preventDefault()
     setState('loading', true)
     try {
-      const response = await fetch(`${CRAWL_SERVER}?url=${state.url}`)
+      const response = await fetch(`${window.location.origin}/.netlify/functions/fetch?url=${state.url}`)
       const text = await response.text()
       setState('url', state.url)
       setState('html', text)
