@@ -1,7 +1,6 @@
 const articles = []
 
-// variable `source` are the target website source
-for (const tr of source.querySelectorAll('tr.athing')) {
+for (const tr of document.querySelectorAll('tr.athing')) {
 	const obj = {}
 	obj.title = tr.querySelector('.titlelink').textContent
 	obj.url = tr.querySelector('.titlelink').href
@@ -16,6 +15,6 @@ for (const tr of source.querySelectorAll('tr.athing')) {
 	articles.push(obj)
 }
 
-// use `json()` to print result
-// press `Ctrl + Enter` to manually eval script
-json(articles)
+// use `print()` to print result
+// press `Ctrl + Enter` to manually execute script
+print(articles)
